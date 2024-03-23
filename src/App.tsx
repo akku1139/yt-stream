@@ -4,7 +4,6 @@ const App: Component = () => {
   return (
     <>
       <h1>Hello world!!!!</h1>
-      <Comp />
     </>
   );
 };
