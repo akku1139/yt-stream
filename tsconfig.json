@@ -7,7 +7,9 @@
     "noEmit": true,
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
     //"types": ["@cloudflare/workers-types"],
   },
 }
