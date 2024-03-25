@@ -16,9 +16,15 @@ const App: Component = () => {
     <input type="radio" id="page-player" name="pages" checked />
     <label class="page-label" for="page-player">player</label>
     <div>
-      <SearchPage class="page-content" id="page-search-content" />
-      <QueuePage class="page-content" id="page-queue-content" />
-      <PlayerPage class="page-content" id="page-player-content" />
+      <div class="page-content" id="page-search-content">
+        <SearchPage />
+      </div>
+      <div class="page-content" id="page-queue-content">
+        <QueuePage />
+      </div>
+      <div class="page-content" id="page-player-content">
+        <PlayerPage />
+      </div>
     </div>
   </>);
 };
