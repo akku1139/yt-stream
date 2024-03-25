@@ -5,7 +5,16 @@ import SearchPage from './pages/search';
 
 const App: Component = () => {
   return (<>
-    <div></div>
+    <div>
+      <input type="radio" id="page-search" name="pages" checked />
+      <label class="page-label" for="page-search">search</label>
+
+      <input type="radio" id="page-queue" name="pages" checked />
+      <label class="page-label" for="page-queue">queue</label>
+
+      <input type="radio" id="page-player" name="pages" checked />
+      <label class="page-label" for="page-player">player</label>
+    </div>
     <div>
       <SearchPage class="page-content" />
       <QueuePage class="page-content" />
