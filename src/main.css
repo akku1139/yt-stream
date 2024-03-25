@@ -2,10 +2,6 @@
   display: none;
 }
 
-.page-selector > input {
-  display: none;
-}
-
 #page-search:checked ~ #page-search-content,
 #page-queue:checked  ~ #page-queue-content,
 #page-player:checked ~ #page-player-content {

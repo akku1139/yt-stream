@@ -10,10 +10,10 @@ const App: Component = () => {
     <input type="radio" id="page-search" name="pages" checked />
     <label class="page-label" for="page-search">search</label>
 
-    <input type="radio" id="page-queue" name="pages" checked />
+    <input type="radio" id="page-queue" name="pages" />
     <label class="page-label" for="page-queue">queue</label>
 
-    <input type="radio" id="page-player" name="pages" checked />
+    <input type="radio" id="page-player" name="pages" />
     <label class="page-label" for="page-player">player</label>
     <div>
       <div class="page-content" id="page-search-content">
