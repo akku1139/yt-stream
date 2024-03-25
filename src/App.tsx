@@ -4,6 +4,7 @@ import QueuePage from './pages/queue';
 import SearchPage from './pages/search';
 
 import "./main.css";
+import Player from './components/Player';
 
 const App: Component = () => {
   return (<>
@@ -25,6 +26,8 @@ const App: Component = () => {
     <div class="page-content" id="page-player-content">
       <PlayerPage />
     </div>
+
+    <Player />
   </>);
 };
 
