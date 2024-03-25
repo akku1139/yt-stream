@@ -1,9 +1,5 @@
 .page-content {
-  /* display: none; */
-  visibility: hidden;
-}
-
-.page-label {
+  display: none;
 }
 
 .page-selector > input {
@@ -13,5 +9,5 @@
 #page-search:checked ~ #page-search-content,
 #page-queue:checked  ~ #page-queue-content,
 #page-player:checked ~ #page-player-content {
-  visibility: visible;
+  display: block;
 }
