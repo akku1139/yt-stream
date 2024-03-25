@@ -1,6 +1,6 @@
 export class YouTubeVideo {
-  id: String;
-  thumbnailURL: String;
+  readonly id: String;
+  readonly thumbnailURL: String;
 
   constructor(id: String) {
     this.id = id;

@@ -1,5 +1,8 @@
 const SearchPage = () => {
-  return <p>Search Page</p>;
+  return <>
+    <input type="text" placeholder="Search" />
+    
+  </>;
 };
 
 export default SearchPage;

@@ -8,10 +8,6 @@ body {
   min-height: 100%;
 }
 
-#page-selector {
-  display: flex;
-}
-
 .page-content {
   display: none;
 }
