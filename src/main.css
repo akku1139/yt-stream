@@ -16,8 +16,8 @@ body {
   display: none;
 }
 
-#page-selector:has(#page-search:checked) ~ #page:has(#page-search-content),
-#page-selector:has(#page-queue:checked)  ~ #page:has(#page-queue-content),
-#page-selector:has(#page-player:checked) ~ #page:has(#page-player-content) {
+#page-selector > #page-search:checked ~ #page > #page-search-content,
+#page-selector > #page-queue:checked  ~ #page > #page-queue-content,
+#page-selector > #page-player:checked ~ #page > #page-player-content {
   display: block;
 }
