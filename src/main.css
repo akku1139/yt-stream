@@ -8,12 +8,16 @@ body {
   min-height: 100%;
 }
 
+#page-selector {
+  display: flex;
+}
+
 .page-content {
   display: none;
 }
 
-#page-search:checked ~ #page-search-content,
-#page-queue:checked  ~ #page-queue-content,
-#page-player:checked ~ #page-player-content {
+#page-selector:has(#page-search:checked) ~ #page:has(#page-search-content),
+#page-selector:has(#page-queue:checked)  ~ #page:has(#page-queue-content),
+#page-selector:has(#page-player:checked) ~ #page:has(#page-player-content) {
   display: block;
 }
