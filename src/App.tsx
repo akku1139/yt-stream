@@ -5,11 +5,11 @@ import SearchPage from './pages/search';
 
 import "./main.css";
 import Player from './components/Player';
-import { setVideoID } from './queue';
+import { queue } from './queue';
 
 const App: Component = () => {
 
-  setVideoID("JBTK0Wssvzc");
+  queue.add("JBTK0Wssvzc");
 
   return (<>
     <div id="page-selector" >

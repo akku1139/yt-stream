@@ -1,12 +1,11 @@
 import { YouTubeVideo } from "../lib/youtube.ts";
-import { nowVideoID } from "../queue.ts";
-
+import { queue } from "../queue.ts";
 const Player = () => {
 
 
   return  <>
-    <img src={new YouTubeVideo(nowVideoID()).thumbnailURL} />
-    <audio controls src={`https://invidious.jing.rocks/latest_version?id=${nowVideoID()}&itag=139`}></audio>
+    <img src={} />
+    <audio controls src={`https://invidious.jing.rocks/latest_version?id=${queue.nowVideoID()}&itag=139`}></audio>
   </>
 };
 

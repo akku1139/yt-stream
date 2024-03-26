@@ -19,12 +19,15 @@ body {
 }
 
 #player {
+  height: 70px;
+  width: 100%;
   position: absolute;
   bottom: 0;
   display: flex;
 }
 
 #player > img {
-  height: 100px;
-  width: 100px;
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
 }
