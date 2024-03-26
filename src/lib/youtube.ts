@@ -1,3 +1,7 @@
+export const apiURL = (path: String) => {
+  return `https://invidious.jing.rocks/${path}`;
+};
+
 export class YouTubeVideo {
   readonly id: String;
   readonly thumbnailURL: String;
@@ -7,19 +11,8 @@ export class YouTubeVideo {
     this.id = id;
     this.thumbnailURL = `https://i.ytimg.com/vi/${id}/sddefault.jpg`;
 
-    const videoInfo = await (await fetch("https://music.youtube.com/youtubei/v1/next?prettyPrint=false", {
-      body: JSON.stringify({
-        context: {
-          client: {
-            clientName: "WEB",
-            clientVersion: "2.20240325.01.00",
-          },
-        },
-        videoId: id,
-      }),
-      method: "POST",
-    })).json();
+    const videoInfo = await (await fetch(apiURL(`api/v1/videos/${id}`))).json();
 
-    this.title = videoInfo.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.title.runs[0].text;
+    this.title = videoInfo.title;
   }
 }

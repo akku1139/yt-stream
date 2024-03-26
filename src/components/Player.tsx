@@ -1,3 +1,4 @@
+import { apiURL } from "../lib/youtube.ts";
 import queue from "../queue.ts";
 const Player = () => {
   return  <>
@@ -7,7 +8,7 @@ const Player = () => {
       <div onClick={queue.next()}>{"next ->"}</div>
     </div>
     <audio autoplay controls
-      src={`https://invidious.jing.rocks/latest_version?id=${queue.nowVideoID()}&itag=139`}
+      src={apiURL(`latest_version?id=${queue.nowVideoID()}&itag=139`)}
       onEnded={(e) => {queue.next()}}
     ></audio>
   </>
