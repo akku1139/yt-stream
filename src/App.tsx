@@ -10,6 +10,8 @@ import queue from './queue';
 const App: Component = () => {
 
   queue.add("JBTK0Wssvzc");
+  queue.add("qhXrye7zkwY");
+  queue.add("seMsAQQexfM");
 
   return (<>
     <div id="page-selector" >
