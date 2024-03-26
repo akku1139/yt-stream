@@ -4,7 +4,7 @@ const Player = () => {
 
 
   return  <>
-    <img src={} />
+    <img src={queue.nowVideo().thumbnailURL} />
     <audio controls src={`https://invidious.jing.rocks/latest_version?id=${queue.nowVideoID()}&itag=139`}></audio>
   </>
 };
