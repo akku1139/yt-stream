@@ -1,5 +1,6 @@
 import { apiURL, YouTubeVideo } from "../lib/youtube";
 import queue from "../queue";
+import Card from "../components/Card";
 
 import { createSignal, Index } from 'solid-js';
 
