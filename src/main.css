@@ -31,3 +31,14 @@ body {
   width: 70px;
   object-fit: cover;
 }
+
+.video-card {
+  width: 90%;
+  height: 200px;
+}
+
+.video-card > img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}

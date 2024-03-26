@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "lib": ["esnext", "WebWorker"],
+    "lib": ["esnext", "WebWorker", "DOM"],
     "noEmit": true,
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
