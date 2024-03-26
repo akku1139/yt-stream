@@ -17,3 +17,14 @@ body {
 #page-selector > #page-player:checked ~ #page > #page-player-content {
   display: block;
 }
+
+#player {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+}
+
+#player > img {
+  height: 100px;
+  width: 100px;
+}

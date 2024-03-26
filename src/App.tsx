@@ -6,7 +6,6 @@ import SearchPage from './pages/search';
 import "./main.css";
 import Player from './components/Player';
 import { setVideoID } from './queue';
-import { YouTubeVideo } from './lib/youtube';
 
 const App: Component = () => {
 
@@ -36,7 +35,9 @@ const App: Component = () => {
       </div>
     </div>
 
-    <Player />
+    <div id="player">
+      <Player />
+    </div>
   </>);
 };
 
