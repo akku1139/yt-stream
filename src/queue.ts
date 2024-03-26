@@ -24,9 +24,9 @@ class Queue {
     this.nowVideo = nowVideo;
     this.setVideo = setVideo;
 
-    createEffect(() => {
-      this.setVideo(new YouTubeVideo(this.nowVideoID()));
-    });
+    createEffect(() => { (async () => {
+      this.setVideo(await YouTubeVideo.new(this.nowVideoID()));
+    })() });
   }
 
   add(id: String) {
