@@ -32,6 +32,8 @@ const App: Component = () => {
     </div>
 
     <Player />
+
+    <p>Commit: <code>{import.meta.env.CF_PAGES_COMMIT_SHA}</code></p>
   </>);
 };
 
