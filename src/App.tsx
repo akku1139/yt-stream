@@ -5,7 +5,7 @@ import SearchPage from './pages/search';
 
 import "./main.css";
 import Player from './components/Player';
-import { queue } from './queue';
+import queue from './queue';
 
 const App: Component = () => {
 

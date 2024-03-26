@@ -37,4 +37,6 @@ class Queue {
   }
 }
 
-export const queue = new Queue();
+const queue = new Queue();
+
+export default queue;
