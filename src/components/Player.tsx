@@ -1,7 +1,7 @@
-import { nowVideo } from "../queue.ts";
+import { nowVideoID } from "../queue.ts";
 
 const Player = () => {
-  return <audio controls src={`https://invidious.jing.rocks/latest_version?id=${nowVideo().id}&itag=139`}></audio>
+  return <audio controls src={`https://invidious.jing.rocks/latest_version?id=${nowVideoID()}&itag=139`}></audio>
 };
 
 export default Player;
