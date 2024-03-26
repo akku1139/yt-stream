@@ -8,7 +8,7 @@ import Player from './components/Player';
 import queue from './queue';
 
 const App: Component = () => {
-
+  queue.add("4gql9o4oiwU");
   queue.add("JBTK0Wssvzc");
   queue.add("qhXrye7zkwY");
   queue.add("seMsAQQexfM");

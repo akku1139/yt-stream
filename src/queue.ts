@@ -3,18 +3,22 @@ import { YouTubeVideo, YouTubeVideo } from "./lib/youtube";
 
 class Queue {
   readonly list: Array<YouTubeVideo>; // この辺もリアクティブにしてあげないと動的に更新できないかもしれない
-  readonly index: Number;
+
+  readonly index: () => Number;
+  readonly setIndex: (Number) => void;
 
   // add() -> nowVideo()
   // setNowVideoID() -> nowVideo()
-  private nowVideoID: () => String;
-  setVideoID: (String) => void;
-  nowVideo: () => YouTubeVideo ;
+  private readonly nowVideoID: () => String;
+  readonly setVideoID: (String) => void;
+  readonly nowVideo: () => YouTubeVideo ;
   private setVideo: (YouTubeVideo) => void;
 
   constructor() {
     this.list = [];
-    this.index = 0;
+    const [index, setIndex] = createSignal<Number>();
+    this.index = index;
+    this.setIndex = setIndex;
 
     const [nowVideoID, setVideoID] = createSignal<String>();
     this.nowVideoID = nowVideoID;
@@ -43,8 +47,9 @@ class Queue {
   }
 
   next() {
-    this.index ++; // createEffect ?
-    this.setVideoID(this.list[this.index]);
+    this.setIndex(this.index() + 1);
+    // createEffect ?
+    this.setVideoID(this.list[this.index()]);
   }
 }
 

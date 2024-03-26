@@ -7,7 +7,6 @@ const Player = () => {
     <div>{queue.nowVideo().title}</div>
     <div>
       <div onClick={queue.next()}>{"next ->"}</div>
-      <button onClick={(e: Event) => { queue.setVideoID("4gql9o4oiwU") }}>別の</button>
     </div>
     <audio autoplay controls
       src={apiURL(`latest_version?id=${queue.nowVideoID()}&itag=139`)}

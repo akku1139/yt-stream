@@ -55,7 +55,8 @@ ul {
 
 /* Player Page */
 .big-thumbnail {
-  height: 100%;
-  width: 100vw;
-  object-fit: cover;
+  height: 100vw;
+  width: 100%;
+  object-fit: contain;
+  background-color: #000;
 }
