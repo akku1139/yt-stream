@@ -5,13 +5,15 @@ class Queue {
   list: Array<YouTubeVideo>;
   index: Number;
 
-  // setNowVideoID() -> nowVideo
+  // add() -> nowVideo()
+  // setNowVideoID() -> nowVideo()
   private nowVideoID;
   setVideoID;
   nowVideo;
   private setVideo;
 
   constructor() {
+    this.list = [];
     this.index = 0;
 
     const [nowVideoID, setVideoID] = createSignal<String>();
@@ -28,7 +30,7 @@ class Queue {
   }
 
   add(id: String) {
-    this.list.add(id);
+    this.list.push(id);
   }
 
   next() {
