@@ -17,7 +17,7 @@ const SearchPage = () => {
     <input type="text" placeholder="Search" onKeyDown={enterToSearch} />
     <ul>
       <For each={videos()}>{(video, i) => {
-        <li><Card video={YouTubeVideo.fromIV(video())} /></li>
+        <li><Card video={YouTubeVideo.fromIV(video)} /></li>
       }}</For>
     </ul>
   </>;
