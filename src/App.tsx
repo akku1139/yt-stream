@@ -5,8 +5,13 @@ import SearchPage from './pages/search';
 
 import "./main.css";
 import Player from './components/Player';
+import { setVideo } from './queue';
+import { YouTubeVideo } from './lib/youtube';
 
 const App: Component = () => {
+
+  setVideo(new YouTubeVideo("JBTK0Wssvzc"));
+
   return (<>
     <div id="page-selector" >
       <input type="radio" id="page-search" name="pages" checked />
@@ -32,8 +37,6 @@ const App: Component = () => {
     </div>
 
     <Player />
-
-    <p>Commit: <code>{import.meta.env.CF_PAGES_COMMIT_SHA}</code></p>
   </>);
 };
 

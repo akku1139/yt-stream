@@ -1,6 +1,6 @@
+import { createSignal } from 'solid-js';
 import { YouTubeVideo, YouTubeVideo } from "./lib/youtube";
 
-let nowVideo: YouTubeVideo;
+export const [nowVideo, setVideo] = createSignal<YouTubeVideo>();
 
 let queue: Array<YouTubeVideo>;
-

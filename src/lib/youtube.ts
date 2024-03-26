@@ -5,5 +5,6 @@ export class YouTubeVideo {
   constructor(id: String) {
     this.id = id;
     this.thumbnailURL = `https://i.ytimg.com/vi/${id}/hq720.jpg`;
+    // https://i.ytimg.com/vi/${id}/sddefault.jpg
   }
 }
