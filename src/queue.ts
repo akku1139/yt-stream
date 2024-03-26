@@ -1,10 +1,9 @@
 import { createSignal, createEffect } from 'solid-js';
 import { YouTubeVideo, YouTubeVideo } from "./lib/youtube";
 
-const [nowVideoID, setVideoID] = createSignal();
-export const setVideoID;
+export const [nowVideoID, setVideoID] = createSignal();
 
-export let nowVideo;
+export let nowVideo: YouTubeVideo;
 
 createEffect(()=>{
   nowVideo = new YouTubeVideo(nowVideoID);
