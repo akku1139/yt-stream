@@ -24,12 +24,12 @@ class Queue {
     this.nowVideo = nowVideo;
     this.setVideo = setVideo;
 
+    this.add("JBTK0Wssvzc"); // 初回にundefinedなる暫定措置
+    setVideoID("JBTK0Wssvzc");
+
     createEffect(() => { (async () => {
       this.setVideo(await YouTubeVideo.new(this.nowVideoID()));
     })() });
-
-    this.add("JBTK0Wssvzc"); // 初回にundefinedなる暫定措置
-    setVideoID("JBTK0Wssvzc");
   }
 
   add(id: String) {
