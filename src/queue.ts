@@ -2,8 +2,8 @@ import { createSignal, createEffect } from 'solid-js';
 import { YouTubeVideo, YouTubeVideo } from "./lib/youtube";
 
 class Queue {
-  list: Array<YouTubeVideo>;
-  index: Number;
+  readonly list: Array<YouTubeVideo>; // この辺もリアクティブにしてあげないと動的に更新できないかもしれない
+  readonly index: Number;
 
   // add() -> nowVideo()
   // setNowVideoID() -> nowVideo()
@@ -35,7 +35,7 @@ class Queue {
 
   next() {
     this.index ++; // createEffect
-    this.setVideoID(this.index);
+    this.setVideoID(this.list[this.index]);
   }
 }
 
