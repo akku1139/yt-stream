@@ -24,9 +24,15 @@ class Queue {
     this.nowVideo = nowVideo;
     this.setVideo = setVideo;
 
-    this.add("JBTK0Wssvzc"); // 初回にundefinedなる暫定措置
-    setVideoID("JBTK0Wssvzc");
-
+    {
+      this.add("JBTK0Wssvzc"); // 初回にundefinedなる暫定措置
+      setVideoID("JBTK0Wssvzc");
+      const t = new YouTubeVideo();
+      t.id = "JBTK0Wssvzc";
+      t.title = "【アコーディオン鬼演奏】コンギョ　攻撃戦だ";
+      t.thumbnailURL = "https://i.ytimg.com/vi/JBTK0Wssvzc/sddefault.jpg"
+      setVideo(t);
+    }
     createEffect(() => { (async () => {
       this.setVideo(await YouTubeVideo.new(this.nowVideoID()));
     })() });
