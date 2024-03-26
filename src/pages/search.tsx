@@ -7,10 +7,8 @@ const SearchPage = () => {
   const [videos, setVideos] = createSignal([]);
 
   const enterToSearch = (e: KeyboardEvent) => {
-    if(e.key === "Enter") { ((e: KeyboardEvent) => {
-      const r = await fetch(apiURL(`api/v1/search?q=${e.currentTarget.value}`));
-      const v = await r.json();
-      setVideos(v);
+    if(e.key === "Enter") { (async (e: KeyboardEvent) => {
+      setVideos(await (await fetch(apiURL(`api/v1/search?q=${e.currentTarget.value}`))).json());
     })(e) }
   };
 
