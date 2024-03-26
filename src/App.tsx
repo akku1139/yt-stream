@@ -5,12 +5,12 @@ import SearchPage from './pages/search';
 
 import "./main.css";
 import Player from './components/Player';
-import { setVideo } from './queue';
+import { setVideoID } from './queue';
 import { YouTubeVideo } from './lib/youtube';
 
 const App: Component = () => {
 
-  setVideo(new YouTubeVideo("JBTK0Wssvzc"));
+  setVideoID("JBTK0Wssvzc");
 
   return (<>
     <div id="page-selector" >
