@@ -28,7 +28,7 @@ class Queue {
   }
 
   add(id: String) {
-    list.add(id);
+    this.list.add(id);
   }
 
   next() {
