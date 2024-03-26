@@ -7,10 +7,10 @@ class Queue {
 
   // add() -> nowVideo()
   // setNowVideoID() -> nowVideo()
-  private nowVideoID;
-  setVideoID;
-  nowVideo;
-  private setVideo;
+  private nowVideoID: () => String;
+  setVideoID: (String) => void;
+  nowVideo: () => YouTubeVideo ;
+  private setVideo: (YouTubeVideo) => void;
 
   constructor() {
     this.list = [];

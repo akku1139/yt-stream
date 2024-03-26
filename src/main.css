@@ -36,7 +36,7 @@ body {
   object-fit: cover;
 }
 
-li {
+ul {
   list-style: none;
   padding-left: 0;
 }
@@ -50,5 +50,12 @@ li {
 .video-card > img {
   height: 120px;
   width: 120px;
+  object-fit: cover;
+}
+
+/* Player Page */
+.big-thumbnail {
+  height: 100%;
+  width: 100vw;
   object-fit: cover;
 }
