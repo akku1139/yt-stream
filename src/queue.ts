@@ -29,6 +29,7 @@ class Queue {
     })() });
 
     this.add("JBTK0Wssvzc"); // 初回にundefinedなる暫定措置
+    setVideoID("JBTK0Wssvzc");
   }
 
   add(id: String) {
