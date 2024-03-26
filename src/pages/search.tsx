@@ -8,7 +8,9 @@ const SearchPage = () => {
 
   const enterToSearch = (e: KeyboardEvent) => {
     if(e.key === "Enter") { ((e: KeyboardEvent) => {
-      setVideos(await (await fetch(apiURL(`api/v1/search?q=${e.currentTarget.value}`))).json());
+      const r = await fetch(apiURL(`api/v1/search?q=${e.currentTarget.value}`));
+      const v = await r.json();
+      setVideos(v);
     })(e) }
   };
 
