@@ -27,6 +27,8 @@ class Queue {
     createEffect(() => { (async () => {
       this.setVideo(await YouTubeVideo.new(this.nowVideoID()));
     })() });
+
+    this.add("JBTK0Wssvzc"); // 初回にundefinedなる暫定措置
   }
 
   add(id: String) {
@@ -34,7 +36,7 @@ class Queue {
   }
 
   next() {
-    this.index ++; // createEffect
+    this.index ++; // createEffect ?
     this.setVideoID(this.list[this.index]);
   }
 }
