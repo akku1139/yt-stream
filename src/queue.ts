@@ -2,31 +2,24 @@ import { createSignal, createEffect } from 'solid-js';
 import { YouTubeVideo, YouTubeVideo } from "./lib/youtube";
 
 class Queue {
-  readonly list: Array<YouTubeVideo>; // この辺もリアクティブにしてあげないと動的に更新できないかもしれない
+  readonly list: () => Array<YouTubeVideo>;
+  readonly setList: (a: Array<YouTubeVideo>) => void;
 
   readonly index: () => Number;
-  readonly setIndex: (Number) => void;
+  readonly setIndex: (n: Number) => void;
 
   // add() -> nowVideo()
   // setNowVideoID() -> nowVideo()
   private readonly nowVideoID: () => String;
-  readonly setVideoID: (String) => void;
+  readonly setVideoID: (id: String) => void;
   readonly nowVideo: () => YouTubeVideo ;
-  private setVideo: (YouTubeVideo) => void;
+  private setVideo: (v: YouTubeVideo) => void;
 
   constructor() {
-    this.list = [];
-    const [index, setIndex] = createSignal<Number>(0);
-    this.index = index;
-    this.setIndex = setIndex;
-
-    const [nowVideoID, setVideoID] = createSignal<String>();
-    this.nowVideoID = nowVideoID;
-    this.setVideoID = setVideoID;
-
-    const [nowVideo, setVideo] = createSignal<YouTubeVideo>();
-    this.nowVideo = nowVideo;
-    this.setVideo = setVideo;
+    [this.index, this.setIndex] = createSignal<Number>(0);
+    [this.list, this.setList] = createSignal<YouTubeVideo>([]);
+    [this.nowVideoID, this.setVideoID] = createSignal<String>();
+    [this.nowVideo, this.setVideo] = createSignal<YouTubeVideo>();
 
     {
       this.add("JBTK0Wssvzc"); // 初回にundefinedなる暫定措置
@@ -38,19 +31,21 @@ class Queue {
       setVideo(t);
     }
 
+    createEffect(() => {
+      this.setVideoID(this.index());
+    });
+
     createEffect(() => { (async () => {
       this.setVideo(await YouTubeVideo.new(this.nowVideoID()));
     })() });
   }
 
   add(id: String) {
-    this.list.push(id);
+    this.setList((l) => l.push(id));
   }
 
   next() {
     this.setIndex(this.index() + 1);
-    // createEffect ?
-    this.setVideoID(this.list[this.index()]);
   }
 }
 
