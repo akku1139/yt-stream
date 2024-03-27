@@ -13,7 +13,7 @@ class Queue {
   private readonly nowVideoID: () => String;
   readonly setVideoID: (id: String) => void;
   readonly nowVideo: () => YouTubeVideo ;
-  private setVideo: (v: YouTubeVideo) => void;
+  private readonly setVideo: (v: YouTubeVideo) => void;
 
   constructor() {
     [this.index, this.setIndex] = createSignal<Number>(0);
@@ -41,11 +41,11 @@ class Queue {
   }
 
   add(id: String) {
-    this.setList((l) => l.push(id));
+    this.setList((l) => [...l, id]);
   }
 
   next() {
-    this.setIndex(i => i +1);
+    this.setIndex(i => i + 1);
   }
 }
 
