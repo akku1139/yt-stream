@@ -9,8 +9,8 @@ export const AddCard: Component = (p: {video: YouTubeVideo}) => {
   </div>;
 };
 
-export const SwitchCard: Component = (p: {video: YouTubeVideo}) => {
-  return <div class="video-card">
+export const SwitchCard: Component = (p: {video: YouTubeVideo, index: Number}) => {
+  return <div class="video-card" onClick={(e) => {queue.setIndex(p.index)}}>
     <img src={p.video.thumbnailURL} />
     <div>{p.video.title}</div>
   </div>;
