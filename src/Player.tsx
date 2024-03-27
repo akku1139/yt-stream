@@ -12,6 +12,8 @@ const Player = () => {
     const [time, setTime] = createSignal<Number>(0);
     let currentTime = () => 0;
 
+    const [isPlaying, setPlaying] = createSignal<Boolean>(true);
+
     onMount(() => {
       createEffect(() => {
         bar.value = time();
@@ -29,8 +31,24 @@ const Player = () => {
       <progress ref={bar}></progress>
       <img src={queue.nowVideo().thumbnailURL} />
       <div>{queue.nowVideo().title}</div>
-      <div>
-        <div onClick={()=>queue.next()}>{"next ->"}</div>
+      <div style="
+        display: flex;
+        height: 100%;
+        width: 150px;
+      ">
+        <Show
+          when={isPlaying()}
+          fallback={<button onClick={()=>{
+            music.play();
+            setPlaying(true);
+          }}>{"▶"}</button>}
+        >
+          <button onClick={()=>{
+            music.pause();
+            setPlaying(false);
+          }}>{"||"}</button>
+        </Show>
+        <button onClick={()=>queue.next()}>{"->"}</button>
       </div>
       <audio autoplay ref={music}
         src={apiURL(`latest_version?id=${queue.nowVideo().id}&itag=139`)}
