@@ -16,31 +16,25 @@ class Queue {
 
   constructor() {
     [this.index, this.setIndex] = createSignal<Number>(0);
-    [this.list, this.setList] = createSignal<YouTubeVideo>([], { equals: (prev, next) => {
-      return !this.queueUpdate;
-    }});
+    [this.list, this.setList] = createSignal<YouTubeVideo>([]);
     [this.nowVideo, this.setVideo] = createSignal<YouTubeVideo>();
 
-    this.queueUpdate = true;
 
     createEffect(() => { (async () => {
-      this.queueUpdate = false;
       this.setVideo(this.list()[this.index()]);
     })() });
   }
 
   add(v: YouTubeVideo) {
-    this.queueUpdate = true;
+    console.debug(this);
     this.setList((l) => {
       l.push(v);
-      return l;
+      return [...l];
     });
-    console.debug(this);
   }
 
   next() {
     this.setIndex(i => i + 1);
-    console.debug(this);
   }
 }
 
