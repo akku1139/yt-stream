@@ -45,6 +45,7 @@ ul {
   width: 90%;
   height: 200px;
   cursor: pointer;
+  display: flex;
 }
 
 .video-card > img {

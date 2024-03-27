@@ -17,15 +17,6 @@ class Queue {
     [this.list, this.setList] = createSignal<YouTubeVideo>([]);
     [this.nowVideo, this.setVideo] = createSignal<YouTubeVideo>();
 
-    {
-      const t = new YouTubeVideo();
-      t.id = "JBTK0Wssvzc";
-      t.title = "【アコーディオン鬼演奏】コンギョ　攻撃戦だ";
-      t.thumbnailURL = "https://i.ytimg.com/vi/JBTK0Wssvzc/sddefault.jpg"
-      this.setVideo(t);
-      this.add(t);
-    }
-
     createEffect(() => { (async () => {
       this.setVideo(this.list()[this.index()]);
     })() });

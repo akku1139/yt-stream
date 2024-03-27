@@ -4,7 +4,7 @@ import QueuePage from './pages/queue';
 import SearchPage from './pages/search';
 
 import "./main.css";
-import Player from './components/Player';
+import Player from './Player';
 
 const App: Component = () => {
   return (<>
@@ -31,9 +31,7 @@ const App: Component = () => {
       </div>
     </div>
 
-    <div id="player">
-      <Player />
-    </div>
+    <Player />
   </>);
 };
 
