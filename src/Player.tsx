@@ -4,23 +4,22 @@ import queue from "./queue.ts";
 import { createSignal, createEffect, onMount, Show } from "solid-js";
 
 const Player = () => {
-  let music: HTMLAudioElement;
-  let bar: HTMLProgressElement;
 
-  const [time, setTime] = createSignal<Number>(0);
+  const Inner = () => {
+    let music: HTMLAudioElement;
+    let bar: HTMLProgressElement;
 
-  onMount(() => {
-    bar.max = music.duration;
-  });
+    const [time, setTime] = createSignal<Number>(0);
 
-  createEffect(() => {
-    bar.value = time();
-  });
+    createEffect(() => {
+      bar.value = time();
+    });
 
-  return <Show
-    when={queue.list().length}
-  >
-    <div id="player">
+    onMount(() => {
+      bar.max = music.duration;
+    });
+
+    return <div id="player">
       <progress ref={bar}></progress>
       <img src={queue.nowVideo().thumbnailURL} />
       <div>{queue.nowVideo().title}</div>
@@ -32,7 +31,13 @@ const Player = () => {
         onTimeUpdate={setTime(music.currentTime)}
         onEnded={(e) => {queue.next()}}
       ></audio>
-    </div>
+    </div>;
+  }
+
+  return <Show
+    when={queue.list().length}
+  >
+    <Inner />
   </Show>
 };
 
