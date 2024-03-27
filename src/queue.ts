@@ -27,10 +27,12 @@ class Queue {
       l.push(v);
       return l;
     });
+    console.debug(this);
   }
 
   next() {
     this.setIndex(i => i + 1);
+    console.debug(this);
   }
 }
 
