@@ -34,26 +34,9 @@ export class YouTubeVideo {
   thumbnailURL: String;
   title: String;
 
-  public static async new(id: String): Promise<YouTubeVideo> {
-    const t = new YouTubeVideo();
-
-    t.id = id;
-    t.thumbnailURL = `https://i.ytimg.com/vi/${id}/sddefault.jpg`;
-
-    const videoInfo = await (await fetch(apiURL(`api/v1/videos/${id}`))).json();
-
-    t.title = videoInfo.title;
-
-    return t;
-  }
-
-  public static fromIV(v: IVVideo): YouTubeVideo {
-    const t = new YouTubeVideo();
-
-    t.id = v.videoId;
-    t.thumbnailURL = `https://i.ytimg.com/vi/${v.videoId}/sddefault.jpg`;
-    t.title = v.title;
-
-    return t;
+  constructor(v: IVVideo) {
+    this.id = v.videoId;
+    this.thumbnailURL = `https://i.ytimg.com/vi/${v.videoId}/sddefault.jpg`;
+    this.title = v.title;
   }
 }

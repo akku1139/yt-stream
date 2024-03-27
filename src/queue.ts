@@ -12,20 +12,28 @@ class Queue {
   readonly nowVideo: () => YouTubeVideo ;
   private readonly setVideo: (v: YouTubeVideo) => void;
 
+  private queueUpdate: Boolean;
+
   constructor() {
     [this.index, this.setIndex] = createSignal<Number>(0);
-    [this.list, this.setList] = createSignal<YouTubeVideo>([]);
+    [this.list, this.setList] = createSignal<YouTubeVideo>([], { equals: (prev, next) => {
+      return !this.queueUpdate;
+    }});
     [this.nowVideo, this.setVideo] = createSignal<YouTubeVideo>();
 
+    this.queueUpdate = true;
+
     createEffect(() => { (async () => {
+      this.queueUpdate = false;
       this.setVideo(this.list()[this.index()]);
     })() });
   }
 
   add(v: YouTubeVideo) {
+    this.queueUpdate = true;
     this.setList((l) => {
       l.push(v);
-      return [...l];
+      return l;
     });
     console.debug(this);
   }
