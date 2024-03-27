@@ -42,7 +42,7 @@ ul {
 }
 
 .video-card {
-  width: 90%;
+  width: 90%; /* not work */
   height: 120px;
   cursor: pointer;
   display: flex;
