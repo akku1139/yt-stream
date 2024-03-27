@@ -2,8 +2,8 @@ import { createSignal, createEffect } from 'solid-js';
 import { YouTubeVideo, YouTubeVideo } from "./lib/youtube";
 
 class Queue {
-  readonly list: () => Array<YouTubeVideo>;
-  readonly setList: (a: Array<YouTubeVideo>) => void;
+  readonly list: () => Array<String>;  // Video ID
+  readonly setList: (a: Array<String>) => void;
 
   readonly index: () => Number;
   readonly setIndex: (n: Number) => void;
@@ -17,7 +17,7 @@ class Queue {
 
   constructor() {
     [this.index, this.setIndex] = createSignal<Number>(0);
-    [this.list, this.setList] = createSignal<YouTubeVideo>([]);
+    [this.list, this.setList] = createSignal<String>([]);
     [this.nowVideoID, this.setVideoID] = createSignal<String>();
     [this.nowVideo, this.setVideo] = createSignal<YouTubeVideo>();
 
@@ -32,7 +32,7 @@ class Queue {
     }
 
     createEffect(() => {
-      this.setVideoID(this.index());
+      this.setVideoID(this.list()[this.index()]);
     });
 
     createEffect(() => { (async () => {
@@ -45,7 +45,7 @@ class Queue {
   }
 
   next() {
-    this.setIndex(this.index() + 1);
+    this.setIndex(i => i +1);
   }
 }
 
