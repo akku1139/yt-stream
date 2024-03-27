@@ -41,7 +41,10 @@ class Queue {
   }
 
   add(id: String) {
-    this.setList((l) => [...l, id]);
+    this.setList((l) => {
+      l.push(id);
+      return l;
+    });
   }
 
   next() {

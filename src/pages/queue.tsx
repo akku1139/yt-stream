@@ -1,6 +1,8 @@
 import { YouTubeVideo } from '../lib/youtube';
 import queue from '../queue';
-import { createSignal, For, Index } from 'solid-js';
+
+import { For } from 'solid-js';
+import Card from '../components/Card';
 
 const QueuePage = () => {
   return <>
