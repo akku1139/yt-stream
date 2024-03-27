@@ -34,8 +34,8 @@ const Player = () => {
       </div>
       <audio autoplay ref={music}
         src={apiURL(`latest_version?id=${queue.nowVideo().id}&itag=139`)}
-        onTimeUpdate={setTime(music.currentTime)}
-        
+        onTimeUpdate={setTime(currentTime)}
+
         onEnded={(e) => {queue.next()}}
       ></audio>
     </div>;
