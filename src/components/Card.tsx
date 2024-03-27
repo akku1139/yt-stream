@@ -3,10 +3,7 @@ import { YouTubeVideo } from '../lib/youtube';
 import queue from '../queue';
 
 export const AddCard: Component = (p: {video: YouTubeVideo}) => {
-  return <a class="video-card" onClick={(e: PointerEvent) => {
-    console.log(e);
-    queue.add(p.video);
-  }}>
+  return <a class="video-card" onClick={(e: PointerEvent) => {queue.add(p.video)}}>
     <img src={p.video.thumbnailURL} />
     <div>{p.video.title}</div>
   </a>;
