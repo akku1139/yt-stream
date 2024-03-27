@@ -10,13 +10,19 @@ const Player = () => {
     let bar: HTMLProgressElement;
 
     const [time, setTime] = createSignal<Number>(0);
-
-    createEffect(() => {
-      bar.value = time();
-    });
+    let currentTime = () => 0;
 
     onMount(() => {
-      bar.max = music.duration;
+      createEffect(() => {
+        bar.value = time();
+      });
+
+      music.addEventListener("loadedmetadata", (e) => {
+        currentTime = () => music.currentTime;
+        bar.max = music.duration;
+      });
+
+      bar.max = Infinity;
     });
 
     return <div id="player">
@@ -29,6 +35,7 @@ const Player = () => {
       <audio autoplay ref={music}
         src={apiURL(`latest_version?id=${queue.nowVideo().id}&itag=139`)}
         onTimeUpdate={setTime(music.currentTime)}
+        
         onEnded={(e) => {queue.next()}}
       ></audio>
     </div>;
