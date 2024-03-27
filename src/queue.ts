@@ -19,7 +19,6 @@ class Queue {
     [this.list, this.setList] = createSignal<YouTubeVideo>([]);
     [this.nowVideo, this.setVideo] = createSignal<YouTubeVideo>();
 
-
     createEffect(() => { (async () => {
       this.setVideo(this.list()[this.index()]);
     })() });

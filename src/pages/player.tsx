@@ -3,7 +3,7 @@ import { Show } from "solid-js";
 
 const PlayerPage = () => {
   return <Show
-    when={queue.list().length}
+    when={queue.nowVideo()}
     fallback={"add video to queue"}
   >
     <img src={queue.nowVideo().thumbnailURL} class="big-thumbnail" />

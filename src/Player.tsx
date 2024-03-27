@@ -35,7 +35,7 @@ const Player = () => {
   }
 
   return <Show
-    when={queue.list().length}
+    when={queue.nowVideo()}
   >
     <Inner />
   </Show>
