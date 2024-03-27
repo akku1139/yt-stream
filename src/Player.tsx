@@ -22,7 +22,7 @@ const Player = () => {
         bar.max = music.duration;
       });
 
-      bar.max = Infinity;
+      bar.max = Number.MAX_SAFE_INTEGER;
     });
 
     return <div id="player">
@@ -35,7 +35,6 @@ const Player = () => {
       <audio autoplay ref={music}
         src={apiURL(`latest_version?id=${queue.nowVideo().id}&itag=139`)}
         onTimeUpdate={()=>setTime(currentTime)}
-
         onEnded={()=>{queue.next()}}
       ></audio>
     </div>;

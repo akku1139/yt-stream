@@ -25,7 +25,6 @@ class Queue {
   }
 
   add(v: YouTubeVideo) {
-    console.debug(this);
     this.setList((l) => {
       l.push(v);
       return [...l];
