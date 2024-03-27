@@ -43,9 +43,13 @@ ul {
 
 .video-card {
   width: 90%;
-  height: 200px;
+  height: 120px;
   cursor: pointer;
   display: flex;
+}
+
+.video-card :hover {
+  background-color: #444;
 }
 
 .video-card > img {
