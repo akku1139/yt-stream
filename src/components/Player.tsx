@@ -9,7 +9,7 @@ const Player = () => {
       <div onClick={queue.next()}>{"next ->"}</div>
     </div>
     <audio autoplay controls
-      src={apiURL(`latest_version?id=${queue.nowVideoID()}&itag=139`)}
+      src={apiURL(`latest_version?id=${queue.nowVideo().id}&itag=139`)}
       onEnded={(e) => {queue.next()}}
     ></audio>
   </>

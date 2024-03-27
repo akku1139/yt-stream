@@ -1,6 +1,6 @@
 import { apiURL, YouTubeVideo } from "../lib/youtube";
 import queue from "../queue";
-import Card from "../components/Card";
+import { AddCard } from "../components/Card";
 
 import { createSignal, For, Index } from 'solid-js';
 
@@ -17,7 +17,7 @@ const SearchPage = () => {
     <input type="text" placeholder="Search" onKeyDown={enterToSearch} />
     <ul>
       <For each={videos()}>{(video, i) => // Indexだとなんか上手く行かなかった
-        <li><Card video={YouTubeVideo.fromIV(video)} /></li>
+        <li><AddCard video={YouTubeVideo.fromIV(video)} /></li>
       }</For>
     </ul>
   </>;
