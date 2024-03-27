@@ -30,12 +30,12 @@ const Player = () => {
       <img src={queue.nowVideo().thumbnailURL} />
       <div>{queue.nowVideo().title}</div>
       <div>
-        <div onClick={queue.next()}>{"next ->"}</div>
+        <div onClick={()=>queue.next()}>{"next ->"}</div>
       </div>
       <audio autoplay ref={music}
         src={apiURL(`latest_version?id=${queue.nowVideo().id}&itag=139`)}
         onTimeUpdate={()=>setTime(currentTime)}
-        onEnded={()=>{queue.next()}}
+        onEnded={()=>queue.next()}
       ></audio>
     </div>;
   }
