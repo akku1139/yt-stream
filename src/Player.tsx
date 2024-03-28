@@ -27,15 +27,26 @@ const Player = () => {
       bar.max = Number.MAX_SAFE_INTEGER;
     });
 
-    return <div id="player">
+    return <div id="player" style={{
+      height: "70px",
+      width: "100%",
+      position: "fixed",
+      bottom: 0,
+      display: "flex",
+      "background-color": "#111",
+    }}>
       <progress ref={bar}></progress>
-      <img src={queue.nowVideo().thumbnailURL} />
+      <img src={queue.nowVideo().thumbnailURL} style={{
+          height: "70px",
+          width: "70px",
+          "object-fit": "cover",
+      }} />
       <div>{queue.nowVideo().title}</div>
-      <div style="
-        display: flex;
-        height: 100%;
-        width: 150px;
-      ">
+      <div style={{
+        display: "flex",
+        height: "100%",
+        width: "150px",
+      }}>
         <Show
           when={isPlaying()}
           fallback={<button onClick={()=>{

@@ -6,7 +6,12 @@ const PlayerPage = () => {
     when={queue.nowVideo()}
     fallback={"add video to queue"}
   >
-    <img src={queue.nowVideo().thumbnailURL} class="big-thumbnail" />
+    <img src={queue.nowVideo().thumbnailURL} style={{
+      height: "100vw",
+      width: "100%",
+      "object-fit": "contain",
+      "background-color": "#000",
+    }} />
     <div>{queue.nowVideo().title}</div>
   </Show>;
 };

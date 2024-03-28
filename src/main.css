@@ -1,12 +1,5 @@
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  color: #eee;
-  background-color: #111;
-}
-
 button{
+  color: #eee;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -19,11 +12,6 @@ button :hover {
   background-color: #444;
 }
 
-#root {
-  min-height: 100%;
-  padding-bottom: 100px;
-}
-
 .page-content {
   display: none;
 }
@@ -34,28 +22,13 @@ button :hover {
   display: block;
 }
 
-#player {
-  height: 70px;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  display: flex;
-  background-color: #111;
-}
-
-#player > img {
-  height: 70px;
-  width: 70px;
-  object-fit: cover;
-}
-
 ul {
   list-style: none;
   padding-left: 0;
 }
 
 .video-card {
-  width: 90%; /* not work */
+  width: 90%; /* not working */
   height: 120px;
   border-radius: 15px;
   cursor: pointer;
@@ -70,12 +43,4 @@ ul {
   height: 120px;
   width: 120px;
   object-fit: cover;
-}
-
-/* Player Page */
-.big-thumbnail {
-  height: 100vw;
-  width: 100%;
-  object-fit: contain;
-  background-color: #000;
 }
