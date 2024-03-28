@@ -13,6 +13,7 @@ const PlayerPage = () => {
       "background-color": "#000",
     }} />
     <div>{queue.nowVideo().title}</div>
+    <a href={`https://youtube.com/watch?v=${queue.nowVideo().id}`}>Watch on YouTube</a>
   </Show>;
 };
 

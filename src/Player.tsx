@@ -32,40 +32,42 @@ const Player = () => {
       width: "100%",
       position: "fixed",
       bottom: 0,
-      display: "flex",
       "background-color": "#111",
     }}>
-      <progress ref={bar}></progress>
-      <img src={queue.nowVideo().thumbnailURL} style={{
-          height: "70px",
-          width: "70px",
-          "object-fit": "cover",
-      }} />
-      <div>{queue.nowVideo().title}</div>
-      <div style={{
-        display: "flex",
-        height: "100%",
-        width: "150px",
-      }}>
-        <Show
-          when={isPlaying()}
-          fallback={<button onClick={()=>{
-            music.play();
-            setPlaying(true);
-          }}>{"▶"}</button>}
-        >
-          <button onClick={()=>{
-            music.pause();
-            setPlaying(false);
-          }}>{"||"}</button>
-        </Show>
-        <button onClick={()=>queue.next()}>{"->"}</button>
+      <progress ref={bar} />
+      <div style={{display: "flex"}}>
+        <img src={queue.nowVideo().thumbnailURL} style={{
+            height: "70px",
+            width: "70px",
+            "object-fit": "cover",
+        }} />
+        <div>{queue.nowVideo().title}</div>
+        <div style={{
+          display: "flex",
+          height: "100%",
+          width: "150px",
+          flex: 1,
+        }}>
+          <Show
+            when={isPlaying()}
+            fallback={<button onClick={()=>{
+              music.play();
+              setPlaying(true);
+            }}>{"▶"}</button>}
+          >
+            <button onClick={()=>{
+              music.pause();
+              setPlaying(false);
+            }}>{"||"}</button>
+          </Show>
+          <button onClick={()=>queue.next()}>{"->"}</button>
+        </div>
+        <audio autoplay ref={music}
+          src={apiURL(`latest_version?id=${queue.nowVideo().id}&itag=139`)}
+          onTimeUpdate={()=>setTime(currentTime)}
+          onEnded={()=>queue.next()}
+        ></audio>
       </div>
-      <audio autoplay ref={music}
-        src={apiURL(`latest_version?id=${queue.nowVideo().id}&itag=139`)}
-        onTimeUpdate={()=>setTime(currentTime)}
-        onEnded={()=>queue.next()}
-      ></audio>
     </div>;
   }
 

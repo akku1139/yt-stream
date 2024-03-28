@@ -1,5 +1,5 @@
 button{
-  color: #eee;
+  color: inherit;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -8,7 +8,7 @@ button{
   appearance: none;
 }
 
-button :hover {
+button:hover {
   background-color: #444;
 }
 
@@ -28,14 +28,14 @@ ul {
 }
 
 .video-card {
-  width: 90%; /* not working */
+  width: 90%;
   height: 120px;
   border-radius: 15px;
   cursor: pointer;
   display: flex;
 }
 
-.video-card :hover {
+.video-card:hover {
   background-color: #444;
 }
 
@@ -43,4 +43,8 @@ ul {
   height: 120px;
   width: 120px;
   object-fit: cover;
+}
+
+a {
+  color: inherit;
 }
