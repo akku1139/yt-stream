@@ -32,7 +32,7 @@ const Player = () => {
       width: "100%",
       position: "fixed",
       bottom: 0,
-      "background-color": "inherit",
+      "background-color": "#111",
     }}>
       <progress ref={bar} style={{
         height: "10px",
@@ -53,8 +53,7 @@ const Player = () => {
           display: "flex",
           height: "100%",
           // width: "150px",
-          flex: 1,
-        }}>
+        }}> {/*flex: 1 or width: 100%*/}
           <Show
             when={isPlaying()}
             fallback={<button onClick={()=>{
