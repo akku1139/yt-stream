@@ -28,24 +28,31 @@ const Player = () => {
     });
 
     return <div id="player" style={{
-      height: "70px",
+      height: "80px",
       width: "100%",
       position: "fixed",
       bottom: 0,
-      "background-color": "#111",
+      "background-color": "inherit",
     }}>
-      <progress ref={bar} />
+      <progress ref={bar} style={{
+        height: "10px",
+        width: "100%",
+        appearance: "unset",
+        display: "block",
+      }} />
       <div style={{display: "flex"}}>
         <img src={queue.nowVideo().thumbnailURL} style={{
-            height: "70px",
-            width: "70px",
-            "object-fit": "cover",
+          height: "70px",
+          width: "70px",
+          "object-fit": "cover",
         }} />
-        <div>{queue.nowVideo().title}</div>
+        <div style={{
+          "max-width": "75%",
+        }}>{queue.nowVideo().title}</div>
         <div style={{
           display: "flex",
           height: "100%",
-          width: "150px",
+          // width: "150px",
           flex: 1,
         }}>
           <Show
