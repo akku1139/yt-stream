@@ -1,6 +1,6 @@
 export const apiURL = (path: String) => {
   //return `https://invidious.jing.rocks/${path}`;
-  return `https://vid.puffyan.us/${path}`;
+  return `https://invidious.perennialte.ch/${path}`;
 };
 
 export type IVVideo =   {
